@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ASSINMNET</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+  
+$(document).ready(function(){
+  var myOption={
+       val9:"add_hobby",
+       val1:"Reading",
+       val2:"Internet",
+       val3:"Dancing",
+       val4:"Cooking",
+       val5:"suffering"
+  };
+      var select = $('select');
+  select.html(select.find('option').sort(function(x, y) {
+ 
+    return $(x).text() > $(y).text() ? 1 : -1;
+  }));
+
+var mySelect=$(".myDropDown");
+$.each(myOption,function(val,text){
+ mySelect.append($('<option class="list-item" value="'+val+'">'+val+'</option>').val(text).html(text)
+  )
+});
+   
+
+  
+  
+       $("body").on('change','.myDropDown',function(){
+          var hobby="";
+          //$.each($(".myDropDown option:selected"),function(){
+            //console.log("hello");
+             hobby=$(this).val();
+              console.log(hobby)
+             $(".myDropDown option[value="+hobby+"]").remove();
+                       //console.log("hello");
+
+            $('table').append('<tr><td>'+hobby+'</td><td><button  value="delete" >X</td></tr>');
+  
+          });
+
+          $("body").on('click','button',function(){
+               var text=$(this).parent().siblings().text();
+              console.log(text);
+           $(this).parent().parent().remove();
+              
+             $(".myDropDown").append($("<option  class='list-item' >"+text+"</option>"))
+
+          
+             });
+        
+         //$(".myDropDown option:selected").remove()
+        
+       
+       $("#add_value").click(function(){
+        var str = $("#txtadd").val();
+       
+            optionText = str; 
+            optionValue = str; 
+
+            $('.myDropDown').append(`<option value="${optionValue}"> ${optionText} </option>`); 
+              
+  
+    });
+   
+ 
+});
+
+</script>
+</head> 
+<body>
+    <form>
+        <label>Select Hobbies:</label>
+        <select class="myDropDown">
+        </select>
+        <br>
+      
+      
+    </form>
+    <div style="margin-top: 20px;">
+    <input type="text" name="" id="txtadd"></input>
+    <input type="button" id="add_value" value="add hobby"></input>
+     </div>
+<table></table>
+
+       
+    
+   </div>
+</body>
+</html>                            

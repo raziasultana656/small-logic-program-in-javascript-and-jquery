@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+ <style type="text/css">
+ 	table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+   text-align: center;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+ </style>
+</head>
+
+<body>
+
+ <p id="txtfield">abc.com?firstName=abc&lastname=abc&userid=5</p>
+
+<table id="TT"></table>
+<script type="text/javascript">
+		
+
+
+$(document).ready(function(){;
+var url="abc.com?firstName=abc&lastname=abc&userid=5";
+
+
+
+
+ var nameArr =url.split("?");
+  console.log(url);
+   console.log(nameArr);
+
+   var employe = nameArr[1].split("&");
+    console.log(employe);
+     
+   
+         var txt="";
+          txt+="<table>";
+      
+      for(var i=0;i<employe.length;i++)
+      {
+              var  data=[];
+             data= employe[i].split("=");
+             console.log(data);
+
+          
+          txt+="<tr><td>"+data[0]+"</td>";
+          
+            txt+="<td>"+data[1]+"</td></tr>";
+
+      }
+      txt+="</table>";
+                 
+       
+        document.getElementById('TT').innerHTML=txt;
+});
+
+
+
+
+	</script>
+</body>
+</html>

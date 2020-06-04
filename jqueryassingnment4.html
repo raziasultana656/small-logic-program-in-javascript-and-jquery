@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:700px;
+			height: 400px;
+			text-align: center;
+			background-color: #15eeaa;
+		}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+   text-align: center;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+.selected {
+    background-color: blue;
+}
+.formvalue{
+	margin-top:40px;
+	font-size: 25px;
+   border: 2PX solid blue;
+   width: 700px;
+   padding: 20px;
+}
+
+	</style>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script>
+
+
+$(document).ready(function(){
+
+	$("#selectall").change(function () {
+		  $('.checkitems').prop('checked', $(this).prop('checked'));
+	});
+
+	
+	$(".checkitems").change(function(){
+
+		if($(this).prop == ("checked")==false) {
+			$("#selectall").prop("checked", false);
+		} if ($(".checkitems:checked").length==$(".checkitems").length){
+			$("#selectall").prop("checked",true);
+		}
+		
+	});
+
+
+
+ $("#data tr").click(function() {
+    
+      $('#data tr').css('background-color', '#15eeaa');
+                $(this).css('background-color', 'yellow');
+});
+
+  $(".delete").click(function() {
+  $(this).parent().parent().remove();
+});
+// insert into form
+    $("table tr").on('click',function() {
+
+    	
+           var name_value=$(this).find('td:nth-child(2)').text();
+         
+           var marks_value=$(this).find('td:nth-child(4)').text();
+           
+           $("input[name=First_Name]").prop("value",name_value);
+            $("input[name=txtMarks]").prop("value",marks_value);
+
+            // hobbies
+              var hobbies_value=$(this).find('td:nth-child(3)').text();
+             var splitHobbies=hobbies_value.split("/");
+          
+            $("input[name='hobby']").prop("checked",false);
+    		var temp=[];
+			for(i=0; i<splitHobbies.length; i++){
+            if(splitHobbies[i]=="travelling")
+            	temp.push("#ch1");
+            if(splitHobbies[i]=="painting")
+            	temp.push("#ch2");
+            if(splitHobbies[i]=="cooking")
+            	temp.push("#ch3");
+            if(splitHobbies[i]=="singing")
+            	temp.push("#ch4");
+        	}
+
+
+        	for(i=0;i<temp.length;i++)
+        	{
+        	$(temp[i]).prop("checked",true);
+
+        	}
+
+        });
+    $('input:checkbox[name=hobby]').each(function() 
+{    
+    if($(this).is(':checked'))
+      alert($(this).val());
+});
+
+});
+</script>
+</head>
+<body>
+	<div class="main">
+    <table border="1" id="data">
+    	<thead>
+<tr>
+
+	<th><input type="checkbox" id="selectall"/>All</th>
+	<th>Name</th>
+	<th>hobbies</th>
+	<th>Marks</th>
+	<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="1"/></td>
+	<td>shyam</td>
+	<td>travelling/painting</td>
+	<td>70</td>
+	<td><button class="delete">delete</button></td>
+</tr>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="2"/></td>
+	<td>ram</td>
+	<td>singing/travelling</td>
+	<td>50</td>
+	<td><button class="delete">delete</button></td>
+</tr>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="3"/></td>
+	<td>rita</td>
+	<td>painting/cooking</td>
+	<td>90</td>
+	<td><button class="delete">delete</button></td>
+</tr>
+<tr>
+	<td ><input type="checkbox" class="checkitems" name="case" value="4"/></td>
+	<td>rima</td>
+	<td>cooking/painting</td>
+	<td>80</td>
+	<td><button class="delete">delete</button></td>
+</tr>
+</tbody>
+</table>
+  
+
+</div>
+
+
+
+	 <div class="formvalue">
+	 	<legend>Student data</legend>
+	 	<form id="form">
+                   <label for="First_Name">Name</label>
+                        
+                    <input type="text" name="First_Name" id="txtFirstname" ><br>
+
+    	       
+    	        	<label for="hobbies">Hobbies:</label>
+                     <label for="hobbies">travelling</label>
+    	        	 <input type="checkbox" name="hobby" id="ch1" value="travelling">
+    	        	 <label for="hobbies">painting</label>
+                     <input type="checkbox" name="hobby" id="ch2" value="painting" >
+                     <label for="hobbies">cooking</label>
+                     <input type="checkbox" name="hobby" id="ch3" value="cooking">
+                     <label for="hobbies">singing</label>
+                     <input type="checkbox"  name="hobby" id="ch4" value="singing" ><br>
+
+
+    	       
+    	        
+    	        	<label for="Marks">Marks</label>
+                        
+                    <input type="text" id="txtMark" name="txtMarks">
+    	        	</form>
+    	        </div>
+
+	</div>
+</body>
+</html>

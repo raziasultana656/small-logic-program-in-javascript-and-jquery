@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:400px;
+			height: 400px;
+			text-align: center;
+			background-color: #15eeaa;
+		}
+     
+
+	</style>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+  $("#txtcheck").click(function(){
+    $(":checkbox").prop("checked", true);
+  });
+   $("#txtclear").click(function(){
+        $(":checkbox").prop("checked", false);
+    });
+});
+</script>
+</head>
+<body>
+	<div class="main">
+  I have a bike: <input type="checkbox" name="vehicle" value="Bike">
+  I have a car: <input type="checkbox" name="vehicle" value="Car" >
+  I have an airplane: <input type="checkbox" name="vehicle" value="Airplane"><br>
+
+  <input type="submit" value="check" id="txtcheck">check all</input>
+  <input type="submit" value ="clear all" id="txtclear">clear</input>
+  
+</div>
+</body>
+</html>

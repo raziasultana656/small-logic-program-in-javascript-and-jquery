@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:400px;
+			height: 400px;
+			text-align: center;
+			background-color: #15eeaa;
+		}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+   text-align: center;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+.selected {
+    background-color: blue;
+}
+
+	</style>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script>
+
+
+$(document).ready(function(){
+
+	$("#selectall").change(function () {
+		  $('.checkitems').prop('checked', $(this).prop('checked'));
+	});
+
+	
+	$(".checkitems").change(function(){
+
+		if($(this).prop == ("checked")==false) {
+			$("#selectall").prop("checked", false);
+		} if ($(".checkitems:checked").length==$(".checkitems").length){
+			$("#selectall").prop("checked",true);
+		}
+		
+	});
+
+
+
+ $("#data tr").click(function() {
+    
+      $('#data tr').css('background-color', '#15eeaa');
+                $(this).css('background-color', 'yellow');
+});
+
+ $(".delete").click(function() {
+  $(this).parent().parent().remove();
+});
+
+
+ $('td:nth-child(2),td:nth-child(3),td:nth-child(4)').dblclick(function () {
+
+      // $("td").not(".case")
+    var $this = $(this);
+    var $input = $('<input>', {
+        value: $this.text(),
+        type: 'text',
+        blur: function() {
+           $this.text(this.value);
+        },
+      
+    }).appendTo( $this.empty() ).focus();
+})
+});
+</script>
+</head>
+<body>
+	<div class="main">
+    <table border="1" id="data">
+<tr>
+	<th><input type="checkbox" id="selectall"/>All</th>
+	<th>Name</th>
+	<th>hobbies</th>
+	<th>Marks</th>
+	<th>Action</th>
+</tr>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="1"/></td>
+	<td >shyam</td>
+	<td >travelling</td>
+	<td >70</td>
+	<td ><button class="delete">delete</button></td>
+</tr>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="2"/></td>
+	<td >ram</td>
+	<td>singing</td>
+	<td >50</td>
+	<td ><button class="delete">delete</button></td>
+</tr>
+<tr >
+	<td ><input type="checkbox" class="checkitems" name="case" value="3"/></td>
+	<td >rita</td>
+	<td >painting</td>
+	<td >90</td>
+	<td ><button class="delete">delete</button></td>
+</tr>
+<tr>
+	<td ><input type="checkbox" class="checkitems" name="case" value="4"/></td>
+	<td >rima</td>
+	<td >cooking</td>
+	<td>80</td>
+	<td ><button class="delete">delete</button></td>
+</tr>
+
+</table>
+  
+
+</div>
+</body>
+</html>

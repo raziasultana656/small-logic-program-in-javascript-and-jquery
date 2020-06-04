@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		$(document).ready(function(){
+  $('#btnClick').click(function(){
+    var val = [];
+    $(':checkbox:checked').each(function(i){
+      val[i] = $(this).val();
+      alert(val);
+    });
+  });
+});
+	</script>
+</head>
+<body>
+
+<input type="checkbox" name="selector[]"
+id="selector" value="id">#id<br>
+<input type="checkbox" name="selector[]"
+id="selector" value="class">.class<br>
+<input type="checkbox" name="selector[]"
+id="selector" value="element">element[@attribute]<br><br>
+<input type="button" id="btnClick" name="btnClick" value="Click" />
+</body>
+</html>

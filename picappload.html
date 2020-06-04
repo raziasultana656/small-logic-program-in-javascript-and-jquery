@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#viewimage	{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+#container
+	{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  width:390px;
+  height:380px;
+}
+#imge{
+
+	height: 380px;
+	width: 390px;
+}
+	</style>
+	<script type="text/javascript">
+
+function loadimage(event){
+	console.log(event);
+	var imageEx=["jpg","jpeg","png"];
+	var fileExtension = event.target.files[0].name.split('.').pop();
+     var matches=imageEx.indexOf(fileExtension);
+     if(matches!=-1){
+     	var img=document.getElementById("imge");
+     	 img.src=URL.createObjectURL( event.target.files[0])
+		  }
+		  else
+		  {
+		  	alert("enter valid image");
+		  	img="";
+		  }
+     
+       console.log(fileExtension);
+
+}
+
+	</script>
+</head>
+<body>
+	<div id="container">
+		
+	 <input type="file" id="avatar" name="avatar" onchange="loadimage(event)" accept="image/*">
+
+      <img id="imge" src="" alt="your image" > 
+      
+      
+ </div>
+
+</body>
+</html>

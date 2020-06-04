@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter your age</p>
+
+<input id="id1" type="number" min="18" max="200" required>
+<button onclick="myFunction()">check  </button>
+
+
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var inpObj = document.getElementById("id1");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("demo").innerHTML = "not allowed to vote";
+  } else {
+    document.getElementById("demo").innerHTML = "allowed to vote";
+  } 
+} 
+</script>
+
+</body>
+</html>

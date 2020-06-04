@@ -1,0 +1,57 @@
+!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" /> 
+        <title>
+            Index 
+        </title>
+        <meta name="viewport" content="width=device-width" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js">
+        </script>
+        <script>
+            $(function() {
+              $("#btn").click(function() {
+                  var x = $("#txt1").val();
+                  var y = $("#txt2").val();
+                  var z = $("#txt3").val();
+                  $("#tb").append("<tr> <td>" + x + "</td> <td>" + y + "</td> <td>" + z + 
+                      "</td><td> <input type='button'class='c' value='Delete'/></td><td> <input class='d' type='button'value='Edit'/></td></tr>");
+        
+              });
+              $("#tb").on("click", ".c", function() {
+                  $(this).closest('tr').remove();
+              }).on("click", ".d", function() {
+                  var row = $(this).closest('tr').toggleClass("editing");
+                  row.find("td").slice(0, 3).prop("contenteditable", row.hasClass("editing"));
+              });
+                
+            });
+        </script>
+        <style>
+            .editing{background:yellow}
+        </style>
+    </head>
+    <body>
+        <div>
+            ID<input type="text" id="txt1" /><br /> Name<input type="text" id="txt2" /><br /> Country<input type="text" id="txt3" /><br /> <input type="button" value="add" id="btn" /> 
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            ID 
+                        </td>
+                        <td>
+                            Name 
+                        </td>
+                        <td>
+                            Country 
+                        </td>
+                        <td>
+                    </tr>
+                </thead>
+                <tbody id="tb">
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

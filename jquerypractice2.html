@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:400px;
+			height: 400px;
+			text-align: center;
+			background-color: #15eeaa;
+		}
+     
+
+	</style>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+    $('input:checkbox').click(function() {
+        $('input:checkbox').not(this).prop('checked', false);
+    });
+});
+
+</script>
+</head>
+<body>
+	<div class="main">
+
+
+<input type="checkbox" class="cb-element" /> Checkbox  1
+<input type="checkbox" class="cb-element" /> Checkbox  2
+<input type="checkbox" class="cb-element" /> Checkbox  3
+
+</div>
+</body>
+</html>
